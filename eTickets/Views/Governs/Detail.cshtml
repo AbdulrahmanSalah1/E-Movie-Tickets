@@ -1,0 +1,66 @@
+﻿@model Govern
+
+@{
+    ViewData["Title"] = "List of Cinemas";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/cinema.css" />
+</head>
+
+@{
+    var MC = (Dictionary<int, int>)ViewData["MC"];
+
+
+
+    var cinemas = (List<Cinema>)ViewData["Cinemas"];
+}
+
+<div class="row flex thumbnail-block cinemas">
+    @foreach (var item in cinemas)
+    {
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <figure class="thumbnail-container">
+                <figure class="thumbnail">
+                    <div class="cinema-overlay">
+                        <img class="lazy" src="@item.Logo" alt="@item.Name" />
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h5>Now Showing</h5>
+                                <strong>@MC[item.Id]</strong>
+                                <h3>Movies</h3>
+                                <a href="@Url.Action("Detail", "Cinemas", new { id = item.Id })" class="btn btn-default text-white">More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption class="caption">
+                        <a id="cinemaMovie" href="@Url.Action("Details", "Cinemas", new { id = item.Id })">
+                            <h3>@item.Name</h3>
+                        </a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="admin-actions">
+                                <a class="btn btn-primary" asp-controller="Cinemas" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a class="btn btn-danger" asp-controller="Cinemas" asp-action="Delete" asp-route-id="@item.Id" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        }
+                        <address>
+                            <span class="pin">
+                                <svg height="12" width="10">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.cairo360.com/app/themes/cairo360/images/sprite.svg#pin"></use>
+                                </svg>
+                            </span>
+                            @item.Description - @item.Governorate.Name
+                        </address>
+                    </figcaption>
+                </figure>
+            </figure>
+        </div>
+    }
+</div>
+
+@await Html.PartialAsync("_CreateItem", "Cinemas")

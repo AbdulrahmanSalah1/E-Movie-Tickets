@@ -1,0 +1,76 @@
+﻿@model Cinema
+
+@{
+    ViewData["Title"] = "Add a New Cinema";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="text-center">Add a New Cinema</h1>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group text-center mb-4">
+                <img id="CinemaLogoPreview" class="border-info rounded-circle" style="max-width: 150px" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Logo" class="control-label">Cinema Logo</label>
+                <input type="file" asp-for="Logo" class="form-control-file" accept="image/*" />
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Cinema Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GovernId" class="control-label">Governorate</label>
+                <select asp-for="GovernId" class="form-control">
+                    @foreach (var item in (List<Govern>)ViewData["Gov"])
+
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="GovernId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Create" class="btn btn-outline-success" />
+                <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Display the current Logo if available
+            var output = document.getElementById('CinemaLogoPreview');
+            var logo = "@(Model?.Logo)";
+            if (logo) {
+                output.src = logo;
+            }
+        });
+
+        // Preview the selected image file
+        $("#Logo").on("change", function () {
+            var output = document.getElementById('CinemaLogoPreview');
+            var file = this.files[0];
+            if (file) {
+                output.src = window.URL.createObjectURL(file);
+            }
+        });
+    </script>
+}

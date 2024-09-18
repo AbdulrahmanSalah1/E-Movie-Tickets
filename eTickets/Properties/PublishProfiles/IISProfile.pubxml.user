@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvACcJ6hhukuCkCFU0srmKAAAAAACAAAAAAAQZgAAAAEAACAAAAAcC2yh1vkvnG2pNZhYsUph9Qp7FuwiaHLgfrkWj5XfZwAAAAAOgAAAAAIAACAAAADwpyA3KwgLALY6miWXGN98FF8CIEyYyh0JBYXPAJVJdyAAAADpOjV41p4CRr5VOwCRLUNjYHvalNlp4i+bdzlNfEGthUAAAABrmmQwDo73yxfsOFcp2s0cElBAg4Cc5h9aMy14rsw534JbQxN1Q6WR6QvOyUXzjKZ9Ot0X3tHa2CaVJL/zHErh</EncryptedPassword>
+    <History>False|2024-09-02T16:24:53.8486365Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnectionString">
+      <Value>Data Source=DESKTOP-IA4R90U\SQL2022%3bInitial Catalog=E-movieF%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=True%3bTrust Server Certificate=True%3bApplication Intent=ReadWrite%3bMulti Subnet Failover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="eTickets.Data.AppDbContext">
+      <Value>Data Source=DESKTOP-IA4R90U\SQL2022%3bInitial Catalog=E-movieF%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=True%3bTrust Server Certificate=True%3bApplication Intent=ReadWrite%3bMulti Subnet Failover=False</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,232 @@
+﻿@model eTickets.Models.Filter
+
+<head>
+    <link rel="stylesheet" href="~/css/movie.css" />
+    <link rel="stylesheet" href="~/css/cinema.css" />
+</head>
+
+<div class="container">
+
+    <!-- Movies Section -->
+    @if (Model.Movies.Any() && !Model.Cinemas.Any())
+    {
+        <div class="section-spacing">
+            @foreach (var movie in Model.Movies)
+            {
+                <h2 class="section-title">@movie.Name</h2>
+                <hr class="section-divider">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100">
+                        <div class="img-overlay">
+                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                                <img src="@movie.ImageURL" alt="@movie.Name">
+                            </a>
+                        </div>
+                        <div class="card-header text-white bg-info">
+                            <h5 class="card-title text-white">
+                                @movie.Name
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="text-white float-right ml-2 tooltip-btn"
+                                       asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id"
+                                       title="Edit Movie">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <a class="text-white float-right tooltip-btn"
+                                       asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id"
+                                       title="Delete Movie">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                }
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong>Status:</strong>&emsp;
+                                @if (DateTime.Now >= movie.StartDate && DateTime.Now <= movie.EndDate)
+                                {
+                                    <span class="badge badge-success">
+                                        <i class="bi bi-check-circle badge-icon"></i>AVAILABLE
+                                    </span>
+                                }
+                                else if (DateTime.Now > movie.EndDate)
+                                {
+                                    <span class="badge badge-danger">
+                                        <i class="bi bi-x-circle badge-icon"></i>EXPIRED
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-primary">
+                                        <i class="bi bi-clock badge-icon"></i>UPCOMING
+                                    </span>
+                                }
+                            </p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            @if (!User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-success text-white @((DateTime.Now > movie.EndDate) ? "disabled" : "")"
+                                   asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@movie.Id"
+                                   title="Add to Cart">
+                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @movie.Price.ToString("c"))
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    <!-- Cinemas Section -->
+    @if (Model.Cinemas.Any() && !Model.Governs.Any())
+    {
+        <div class="section-spacing">
+            @foreach (var cinema in Model.Cinemas)
+            {
+                <h2 class="section-title">Movies in @cinema.Name</h2>
+                <hr class="section-divider">
+                <div class="row">
+                    @foreach (var movie in Model.Movies.Where(m => m.CinemaId == cinema.Id))
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card h-100">
+                                <div class="img-overlay">
+                                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                                        <img src="@movie.ImageURL" alt="@movie.Name">
+                                    </a>
+                                </div>
+                                <div class="card-header text-white bg-info">
+                                    <h5 class="card-title text-white">
+                                        @movie.Name
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+
+                                        {
+                                            <a class="text-white float-right ml-2 tooltip-btn"
+                                               asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id"
+                                               title="Edit Movie">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a class="text-white float-right tooltip-btn"
+                                               asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id"
+                                               title="Delete Movie">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        }
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <strong>Status:</strong>&emsp;
+                                        @if (DateTime.Now >= movie.StartDate && DateTime.Now <= movie.EndDate)
+
+                                        {
+                                            <span class="badge badge-success">
+                                                <i class="bi bi-check-circle badge-icon"></i>AVAILABLE
+                                            </span>
+                                        }
+
+                                        else if (DateTime.Now > movie.EndDate)
+
+                                        {
+                                            <span class="badge badge-danger">
+                                                <i class="bi bi-x-circle badge-icon"></i>EXPIRED
+                                            </span>
+                                        }
+
+                                        else
+
+                                        {
+                                            <span class="badge badge-primary">
+                                                <i class="bi bi-clock badge-icon"></i>UPCOMING
+                                            </span>
+                                        }
+                                    </p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between">
+                                    @if (!User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-success text-white @((DateTime.Now > movie.EndDate) ? "disabled" : "")"
+                                           asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@movie.Id"
+                                           title="Add to Cart">
+                                            <i class="bi bi-cart-plus"></i> Add to Cart (Price @movie.Price.ToString("c"))
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            
+        </div>
+    }
+
+    <!-- Govern Cinemas Section -->
+    @if (Model.Governs.Any() && !Model.Movies.Any())
+    {
+        <div class="section-spacing">
+            @foreach (var govern in Model.Governs)
+            {
+
+                var MC = (Dictionary<int, int>)ViewData["MC"];
+
+                <h2 class="section-title">Cinemas in @govern.Name</h2>
+                <hr class="section-divider">
+            
+                <div class="row flex thumbnail-block cinemas">
+                    @foreach (var cinema in Model.Cinemas.Where(c => c.GovernId == govern.Id))
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <figure class="thumbnail-container">
+                                <figure class="thumbnail">
+                                    <div class="cinema-overlay">
+                                        <img class="lazy" src="@cinema.Logo" alt="@cinema.Name" />
+                                        <div class="overlay">
+                                            <div class="overlay-content">
+                                                <h5>Now Showing</h5>
+                                                <strong>@MC[cinema.Id]</strong>
+                                                <h3>Movies</h3>
+                                                <a href="@Url.Action("Detail", new { id = cinema.Id })" class="btn btn-default text-white">More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <figcaption class="caption">
+                                        <a id="cinemaMovie" href="@Url.Action("Details", new { id = cinema.Id })">
+                                            <h3>@cinema.Name</h3>
+                                        </a>
+                                        @if (User.IsInRole("Admin"))
+
+
+
+                                        {
+                                            <div class="admin-actions">
+                                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@cinema.Id" title="Edit">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>
+                                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@cinema.Id" title="Delete">
+                                                    <i class="bi bi-trash"></i>
+                                                </a>
+                                            </div>
+                                        }
+                                        <address>
+                                            <span class="pin">
+                                                <svg height="12" width="10">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.cairo360.com/app/themes/cairo360/images/sprite.svg#pin"></use>
+                                                </svg>
+                                            </span>
+                                            @cinema.Description - @cinema.Governorate.Name
+                                        </address>
+                                    </figcaption>
+                                </figure>
+                            </figure>
+                        </div>
+                    }
+                </div>
+            }
+            
+        </div>
+    }
+
+</div>

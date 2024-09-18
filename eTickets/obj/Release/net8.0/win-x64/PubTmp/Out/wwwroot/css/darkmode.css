@@ -1,0 +1,18 @@
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+.dark-mode {
+    background-color: #121212;
+    /*color: #e0e0e0;*/
+    /*color: black;*/
+    
+}
+.dark-mode-toggle .bi-moon-fill {
+    color: #007bff;
+}
+.dark-mode .dark-mode-toggle .bi-moon-fill {
+    color: #ffc107;
+}
