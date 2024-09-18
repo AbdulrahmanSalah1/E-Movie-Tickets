@@ -1,0 +1,212 @@
+/* .bg-info {
+    background-color: #918d91 !important;
+}
+
+.thumbnail-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.thumbnail-block .cinema-overlay {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; 
+}
+
+.thumbnail-block .overlay {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-size: 14px;
+    direction: rtl;
+    line-height: 1.428571429;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Droid Arabic Kufi", sans-serif !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail-block .cinema-overlay:hover .overlay {
+    opacity: 1;
+}
+
+.thumbnail-block .overlay-content h5,
+.thumbnail-block .overlay-content strong,
+.thumbnail-block .overlay-content h3 {
+    margin: 0;
+}
+
+.thumbnail-block figure {
+    margin: 0;
+    padding: 0;
+}
+
+.thumbnail-block .caption {
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd; 
+}
+
+.thumbnail-block .caption h3 {
+    margin: 5px 0;
+}
+
+.thumbnail-block address {
+    font-style: normal;
+    color: #666;
+    font-size: 13px; 
+}
+
+img.lazy {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px; 
+    display: block;
+    margin: auto;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    font-family: "Droid Arabic Kufi", sans-serif !important;
+}
+
+.thumbnail-container {
+    margin: auto;
+    width: 100%;
+    max-width: 250px;
+    position: relative;
+}
+
+.admin-actions {
+    position: relative;
+    margin-top: -40px; 
+}
+
+.admin-actions .btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.admin-actions .btn i {
+    margin-right: 5px;
+}*/
+
+ /* Add custom inline styles for enhancements if needed */
+ .thumbnail-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cinema-overlay {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.cinema-overlay img {
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.thumbnail:hover .overlay {
+    text-align: center;
+    opacity: 1;
+}
+
+.overlay-content h5, 
+.overlay-content strong,
+.overlay-content h3 {
+    margin: 0;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.caption {
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    height: 120px;
+}
+
+.caption h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.admin-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.admin-actions a {
+    color: #fff;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.admin-actions a:hover {
+    color: #007bff;
+}
+
+address {
+    font-style: normal;
+    color: #666;
+}
+
+.pin svg {
+    vertical-align: middle;
+}

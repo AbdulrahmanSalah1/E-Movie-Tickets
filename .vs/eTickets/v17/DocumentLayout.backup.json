@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\E-movie-Ticket-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\cinemascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\cinemascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\producerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\producerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\governscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\governscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\actorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|d:\\e-movie-ticket-main\\etickets\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E592B8C7-B2B8-4BD1-951A-79EA165170BD}|eTickets\\eTickets.csproj|solutionrelative:etickets\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\appsettings.json",
+              "RelativeDocumentMoniker": "eTickets\\appsettings.json",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\appsettings.json",
+              "RelativeToolTip": "eTickets\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-18T15:00:45.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProducersController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\ProducersController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\ProducersController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\ProducersController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\ProducersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:43.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:42.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MoviesController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\MoviesController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\MoviesController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\MoviesController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\MoviesController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:41.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:40.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GovernsController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\GovernsController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\GovernsController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\GovernsController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\GovernsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:39.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CinemasController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\CinemasController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\CinemasController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\CinemasController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\CinemasController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAA+wKYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:37.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ActorsController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\ActorsController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\ActorsController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\ActorsController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\ActorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:36.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "eTickets\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\E-movie-Ticket-main\\eTickets\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "eTickets\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:51:35.291Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

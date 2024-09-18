@@ -1,0 +1,75 @@
+﻿@model Cinema
+
+@{
+    ViewData["Title"] = "List of Movies";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/movie.css" />
+</head>
+
+<body>
+
+    <div class="row">
+        @foreach (var item in Model.Movies)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100">
+                    <div class="img-overlay">
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id"><img src="@item.ImageURL" alt="@item.Name"></a>
+                    </div>
+                    <div class="card-header text-white bg-info">
+                        <h5 class="card-title text-white">
+                            @item.Name
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="text-white float-right ml-2 tooltip-btn" asp-controller="Movies" asp-action="Edit" asp-route-id="@item.Id" data-tooltip="Edit Movie">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a class="text-white float-right tooltip-btn" asp-controller="Movies" asp-action="Delete" asp-route-id="@item.Id" data-tooltip="Delete Movie">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            }
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong>Status:</strong>&emsp;
+                            @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+                            {
+                                <span class="badge badge-success">
+                                    <i class="bi bi-check-circle badge-icon"></i>AVAILABLE
+                                </span>
+                            }
+                            else if (DateTime.Now > item.EndDate)
+                            {
+                                <span class="badge badge-danger">
+                                    <i class="bi bi-x-circle badge-icon"></i>EXPIRED
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-primary">
+                                    <i class="bi bi-clock badge-icon"></i>UPCOMING
+                                </span>
+                            }
+                        </p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")"
+                               asp-controller="Orders"
+                               asp-action="AddItemToShoppingCart"
+                               asp-route-id="@item.Id">
+                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
+@await Html.PartialAsync("_CreateItem", "Movies")

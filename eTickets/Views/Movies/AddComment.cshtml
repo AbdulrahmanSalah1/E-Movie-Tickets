@@ -1,0 +1,8 @@
+﻿<form asp-action="AddComment" method="post">
+    <input type="hidden" name="movieId" value="@Model.Id" />
+    <div class="form-group">
+        <label for="commentText">Add a Comment</label>
+        <textarea class="form-control" id="commentText" name="commentText" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>

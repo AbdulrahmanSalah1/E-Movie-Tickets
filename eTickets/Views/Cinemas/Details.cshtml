@@ -1,0 +1,60 @@
+﻿@model Cinema
+
+@{
+    ViewData["Title"] = "Details of the Cinema";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/cinema-details.css" />
+</head>
+
+<div class="container cinema-details">
+    <div class="details">
+        <div class="float-right">
+            <img src="@Model.Logo" class="border-info rounded-circle" style="max-width: 200px;" id="LogoPreview" alt="Cinema Logo" />
+        </div>
+
+        <div class="mb-3">
+            <strong>Name:</strong>
+            <p>@Model.Name</p>
+        </div>
+
+        <div class="mb-3">
+            <strong>Description:</strong>
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="mb-3">
+            <strong>Governorate:</strong>
+            <p>
+                @{
+                    var governorates = (List<Govern>)ViewData["Gov"];
+
+                    var selectedGov = governorates.FirstOrDefault(g => g.Id == Model.GovernId);
+                    @selectedGov?.Name
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+
+        {
+            <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        }
+        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('LogoPreview');
+            var logoUrl = "@Model.Logo";
+            if (logoUrl) {
+                output.src = logoUrl;
+            }
+        });
+    </script>
+}

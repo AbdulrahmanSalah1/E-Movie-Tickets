@@ -1,0 +1,201 @@
+﻿@using eTickets.Data
+
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>@ViewData["Title"] - eTickets</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/stylle.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/darkmode.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Vendor CSS Files -->
+    <link href="~/NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/NiceAdmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="~/NiceAdmin/assets/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="dark-mode-toggle">
+                <i class="bi bi-moon-fill" id="toggle-dark-mode" onclick="toggleDarkMode()"></i>
+            </div>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/Picture1.png" width="75" height="75" alt="eTickets Logo" />
+                </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index">
+                            <i class="bi bi-film"></i> Movies <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Cinemas" asp-action="Index">
+                            <i class="bi bi-camera-reels"></i> Cinemas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Governs" asp-action="Index">
+                            <i class="bi bi-globe"></i> Governorates
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Account" asp-action="ContactUs">
+                            <i class="bi bi-envelope"></i> Contact Us
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn btn-outline-primary dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Movie Category
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var category in Enum.GetValues(typeof(MovieCategory)))
+                            {
+                                <a class="dropdown-item" asp-controller="Movies" asp-action="Filter" asp-route-movieCategory="@category">@category</a>
+                            }
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex" asp-controller="Cinemas" asp-action="Filter">
+                    <input name="searchString" type="text" class="form-control me-2" placeholder="Search for a movie..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
+                            <i class="bi bi-cart4"></i>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                            {
+                                <b>@(ViewData["CartItemsCount"] ?? 0)</b>
+                            }
+                            else
+                            {
+                                <b>0</b>
+                            }
+                        </a>
+                    </li>
+                    <li class="nav-item float-right">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+                                <i class="bi bi-box-arrow-in-right"></i> Log in
+                            </a>
+                            <span class="mx-2"></span>
+                            <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
+                                <i class="bi bi-person-plus"></i> Register
+                            </a>
+                        }
+                        else
+                        {
+                            <nav class="header-nav ms-auto float-right">
+                                <ul class="d-flex align-items-center">
+                                    <li class="nav-item dropdown pe-3">
+                                        @{
+                                            var user = UserManager.GetUserAsync(User).Result;
+                                            var profilePictureUrl = user?.ProfileImageUrl;
+                                        }
+                                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                                            @if (!string.IsNullOrEmpty(profilePictureUrl))
+                                            {
+                                                <img src="@profilePictureUrl" alt="Profile" class="rounded-circle" style="width:40px;height:40px;">
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-person-badge"></i>
+                                            }
+                                            <span class="d-none d-md-block dropdown-toggle ps-2">Hello! @UserManager.GetUserName(User)</span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                                            <li class="dropdown-header">
+                                                <h6>@UserManager.GetUserName(User)</h6>
+                                                <span>User</span>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex align-items-center" asp-controller="Account" asp-action="Profile">
+                                                    <i class="bi bi-person"></i>
+                                                    <span>My Profile</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item d-flex align-items-center" asp-controller="Orders" asp-action="Index">
+                                                    <i class="bi bi-list"></i>
+                                                    <span>My Orders</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                                    <button type="submit" class="dropdown-item d-flex align-items-center">
+                                                        <i class="bi bi-box-arrow-right"></i> Logout
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-7 pt-4">   <!--class="pb-5"-->
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted mt-auto" style="position: absolute;">
+        <div class="container">
+            &copy; 2023 - eTickets
+        </div>
+    </footer>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Vendor JS Files -->
+    <script src="~/NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/NiceAdmin/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

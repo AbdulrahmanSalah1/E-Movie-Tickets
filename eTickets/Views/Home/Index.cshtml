@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Cinema>
+<link rel="stylesheet" href="~/css/movie.css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/swiper.css">
+
+<div class="container">
+    @foreach (var cinema in Model)
+    {
+        <div class="cinema-section mb-5">
+            <div class="row text-center mb-3">
+                <div class="col-md-12">
+                    <a asp-controller="Cinemas" style="text-decoration:none;" asp-action="Detail" asp-route-id="@cinema.Id" class="cinema-link">
+                        <h2>@cinema.Name</h2>
+                    </a>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach (var item in cinema.Movies)
+                    {
+                        <div class="swiper-slide">
+                            <div class="card movie-card">
+                                <div class="card-img">
+                                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id"><img src="@item.ImageURL" class="movie-img"></a>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5>@item.Name</h5>
+                                    <p class="card-text">
+                                        @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+
+                                        {
+                                            <span class="badge badge-success">
+                                                <i class="bi bi-check-circle badge-icon"></i>AVAILABLE
+                                            </span>
+                                        }
+
+                                        else if (DateTime.Now > item.EndDate)
+
+                                        {
+                                            <span class="badge badge-danger">
+                                                <i class="bi bi-x-circle badge-icon"></i>EXPIRED
+                                            </span>
+                                        }
+
+                                        else
+
+                                        {
+                                            <span class="badge badge-primary">
+                                                <i class="bi bi-clock badge-icon"></i>UPCOMING
+                                            </span>
+                                        }
+                                    </p>
+                                    @if (!User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")"
+                                           asp-controller="Orders"
+                                           asp-action="AddItemToShoppingCart"
+                                           asp-route-id="@item.Id">
+                                            <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+}

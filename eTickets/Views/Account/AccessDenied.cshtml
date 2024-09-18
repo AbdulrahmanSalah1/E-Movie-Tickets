@@ -1,0 +1,23 @@
+﻿<body style="background-image: url('/images/background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg p-4" style="max-width: 600px; width: 100%; background-color: rgba(255, 255, 255, 0.9); border-radius: 12px;">
+            <div class="card-body text-center">
+                <h2 class="text-danger mb-3">You are not allowed to access this page</h2>
+                <p class="mb-4">Please, click the button below to be redirected to the home page.</p>
+                <hr />
+                <p>
+                    @if (!User.IsInRole("Admin"))
+                    {
+
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-danger btn-lg">Home Page</a>
+
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Dashboard" class="btn btn-outline-danger btn-lg">Home Page</a>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</body>

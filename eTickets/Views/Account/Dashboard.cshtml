@@ -1,0 +1,179 @@
+﻿@using eTickets.Data
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Cards for key metrics -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Movies</h5>
+                        <i class="bi bi-film h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalMovies</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Cinemas</h5>
+                        <i class="bi bi-camera-reels h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalCinemas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Governorates</h5>
+                        <i class="bi bi-globe h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalGoverns </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Orders</h5>
+                        <i class="bi bi-cart4 h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalOrders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Comment</h5>
+                        <i class="bi bi-chat h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalComments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Rates</h5>
+                        <i class="bi bi-star h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalRates</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Users</h5>
+                        <i class="bi bi-people-fill h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Cards -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Producers</h5>
+                        <i class="bi bi-headset h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalProducers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card bg-light text-dark h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">Total Actors</h5>
+                        <i class="bi bi-person-square h3"></i>
+                    </div>
+                    <p class="card-text display-4">@Model.TotalActors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* <div class="row mt-4">
+        <!-- Management Cards -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Movies</h5>
+                    <p class="card-text">Create, update, or delete movies in the system.</p>
+                    <a href="@Url.Action("Index", "Movies")" class="btn btn-primary"><i class="bi bi-film"></i> Go to Movies</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Cinemas</h5>
+                    <p class="card-text">Manage cinema locations and details.</p>
+                    <a href="@Url.Action("Index", "Cinemas")" class="btn btn-primary"><i class="bi bi-camera-reels"></i> Go to Cinemas</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Governorates</h5>
+                    <p class="card-text">View and edit governorate information.</p>
+                    <a href="@Url.Action("Index", "Governs")" class="btn btn-primary"><i class="bi bi-geo-alt"></i> Go to Governors</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Producers</h5>
+                    <p class="card-text">View and edit producer information.</p>
+                    <a href="@Url.Action("Index", "Producers")" class="btn btn-primary"><i class="bi bi-headset"></i> Go to Producers</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Actors</h5>
+                    <p class="card-text">Manage the actors featured in movies.</p>
+                    <a href="@Url.Action("Index", "Actors")" class="btn btn-primary"><i class="bi bi-person-square"></i> Go to Actors</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Orders</h5>
+                    <p class="card-text">View and manage orders.</p>
+                    <a href="@Url.Action("Index", "Orders")" class="btn btn-primary"><i class="bi bi-cart4"></i> View Recent Orders</a>
+                </div>
+            </div>
+        </div>
+    </div> *@
+</div>
